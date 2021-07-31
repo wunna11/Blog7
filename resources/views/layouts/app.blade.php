@@ -32,9 +32,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-success" href="{{ url('/articles/add') }}">Add Article</a>
+                            @auth
+                                <a class="nav-link text-success" href="{{ url('/articles/add') }}">Add Article</a>
+                            @endauth
+                        </li>
+                    </ul>
+                    
+                    {{-- Category --}}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            @auth
+                                <a class="nav-link text-success" href="{{ route('categoryAdd') }}">Add Category</a>
+                            @endauth
                         </li>
                     </ul>
 

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @if (Session('info'))
+            <div class="alert alert-info">{{ Session('info') }}</div>
+        @endif
+
+        {{-- pagination --}}
         {{ $articles->links() }}
         @foreach ($articles as $article)
             <div class="card mb-2">
@@ -11,7 +16,7 @@
                     </div>
                     <p class="text-content">{{ $article->body }}</p>
                     <a class="card-link"
-                     href="{{ url("/articles/detail/$article->id") }}">
+                     href="{{ route('articleDetail', $article->id) }}">
                      View Detail &raquo;
                     </a>
                 </div>
